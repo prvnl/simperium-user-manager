@@ -11,7 +11,7 @@ To setup the Simperium Reset Password script follow these guidelines:
 * Change the 'settings.php' file according to your settings
 * Create a database on your MySQL instance
 * Create a user for your database on your MySQL instance
-* Create the tokens table, using the 'tokes.sql' script
+* Create the tokens table, using the 'tokes_table.sql' script
 * Upload the PHP files the your web hosting
 * Test your Simperium Reset Password script! 
 
