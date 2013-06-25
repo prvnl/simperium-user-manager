@@ -8,7 +8,7 @@ This script uses PHP, SMTP, MySQL, cURL and JSON. Make sure your web hosting is 
 To setup the Simperium Reset Password script follow these guidelines:
 
 * Download the sources
-* Change the setting.php file according to your settings
+* Change the 'settings.php' file according to your settings
 * Create a database on your MySQL instance
 * Create a user for your database on your MySQL instance
 * Create the tokens table, using the 'tokes.sql' script
