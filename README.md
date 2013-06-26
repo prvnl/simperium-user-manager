@@ -17,7 +17,7 @@ To setup the Simperium Reset Password script follow these guidelines:
 
 Things still to do:
 
-* Add some additionally error handling
+* Add some additional error handling
 * Add some basic styling, now the script has no styling
 * Add an option to execute the script directly from your App, so the user gets the email without leaving the App.
 * Add an option to change the users current password
