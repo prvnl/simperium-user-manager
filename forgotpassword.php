@@ -65,7 +65,7 @@ else
             <p>Hi,<br><br>You have requested the password reset link for your '.$app.' account!<br><br>
             You can change the password for your account here:<br><br>
             <a href="'.getcurrentpath().'resetpassword.php?token='.$token.'">Reset Password Link</a><br><br>
-            If you need further assistance please contact support@prv.nl</p>
+            If you need further assistance please contact '.$from.'</p>
             </body>
             </html>';
             $headers = "MIME-Version: 1.0" . "\r\n";
