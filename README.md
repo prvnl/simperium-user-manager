@@ -12,13 +12,12 @@ To setup the Simperium Reset Password script follow these guidelines:
 * Create a user for your database on your MySQL instance
 * Create the tokens table in your database, using the 'tokes_table.sql' script
 * Change the 'settings.php' file according to your settings
+* Upload the 'assets' folder to your web hosting
 * Upload the PHP files to your web hosting
 * Test your Simperium Reset Password script by opening 'forgotpassword.php' in your webbrowser! 
 
 Things still to do:
 
-* Add some additional error handling
-* Add some basic styling, now the script has no styling
 * Add an option to execute the script directly from your App, so the user gets the email without leaving the App.
 * Add an option to change the users current password
 * Add an option to change the users current username
