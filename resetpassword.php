@@ -78,89 +78,19 @@ if($action=="Check")
     }
 }
 
-echo '<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Forgot Password - '.$appName.'</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
-
-        <style type="text/css">
-            body {
-                padding-top: 100px;
-                padding-bottom: 40px;
-                background-color: #f5f5f5 !important;
-            }
-
-            .placeholder {
-                color: #aaa !important;
-            }
-
-            .form-signin {
-                max-width: 350px;
-                padding: 19px 29px 29px;
-                margin: 0 auto 20px;
-                background-color: #fff;
-                border: 1px solid #e5e5e5;
-                -webkit-border-radius: 5px;
-                -moz-border-radius: 5px;
-                border-radius: 5px;
-                -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-                -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-                box-shadow: 0 1px 2px rgba(0,0,0,.05);
-            }
-            .form-signin .form-signin-heading,
-            .form-signin .checkbox {
-                margin-bottom: 10px;
-            }
-            .form-signin input[type="text"],
-            .form-signin input[type="password"] {
-                font-size: 16px;
-                height: auto;
-                margin-bottom: 15px;
-                padding: 7px 9px;
-            }
-
-        </style>
-        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-        <!--[if lt IE 9]>
-            <script src="assets/js/html5shiv.js"></script>
-        <![endif]-->
-
-    </head>
-
-    <body>
-
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    </button>
-                    <a class="brand" href="#">'.$appName.'</a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li class="active"><a href="forgotpassword.php">Forgot Password</a></li>
-                        </ul>
-                    </div><!--/.nav-collapse -->
-                </div>
-            </div>
-        </div>';
+//Set parameters for header include
+$pageTitle="Forgot password";
+//Header include
+include("header.php");
 
         echo '<div class="container">
             <form class="form-signin" method="post">';
 
 if($action=="Check")
 {
-                echo '<h2>Forgot your password</h2>
+                echo '<h2>Forgot password</h2>
                 <p>Please enter your new password for: <b>'.$email.'</b></p>
-                <input type="password" class="input-block-level" name="password" placeholder="New password">
+                <input type="password" class="input-block-level" name="password" placeholder="New password" required>
                 <input type="hidden" name="action" value="Save">';
                 
                 if($alert)
@@ -170,19 +100,19 @@ if($action=="Check")
                     '.$alert.'
                     </div>';
                 }
-                echo '<button class="btn btn-large btn-inverse" type="submit">Change Password</button>';
+                echo '<button class="btn btn-large btn-inverse" type="submit">Change password</button>';
 }
 elseif($action=="Success")
 {
                 echo '<h2>Password changed!</h2>
-                <p>The password for your account is succesfully changed!<br/>
+                <p>The password for your account is succesfully changed!<br/><br/>
                 If you need additional support, please contact: <a href="mailto:'.$emailFrom.'">'.$emailFrom.'</a>
                 </p>';
 }
 else
 {
                 echo '<h2>Error occurred</h2>
-                <p>This password reset link is invalid or the password is already changed..<br/>
+                <p>This password reset link is invalid or the password is already changed..<br/><br/>
                 If you need additional support, please contact: <a href="mailto:'.$emailFrom.'">'.$emailFrom.'</a>
                 </p>';
 }
@@ -190,21 +120,7 @@ else
             echo '</form>
         </div> <!-- /container -->';
     
-        echo '<!-- JavaScripts placed at the end of the document so the pages load faster -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+//Footer include
+include("footer.php");
 
-        <!-- Invoke the input placeholder plugin for < IE 10 -->
-        <!--[if lt IE 10]>
-            <script src="assets/js/jquery.placeholder.js?v=2.0.7"></script>
-            <script>
-
-            $(function() {
-              $("input, textarea").placeholder();
-              });
-            </script>
-        <![endif]-->
-
-    </body>
-</html>';
 ?>
