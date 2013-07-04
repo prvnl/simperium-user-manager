@@ -18,4 +18,9 @@ $uname="DatabaseUsername"; //Username for access to database
 $pass="DatabasePassword"; //Password for access to database
 $db= "DatabaseName";  //Database name
 
+//Google Analytics Settings
+$GAEnabled=false; //If 'true' tracking is enabled, if 'false' tracking is disabled
+$GATrackingID="YourTrackinID"; //Your Google Analytics Tracking ID
+$GATrackingDomain="YourTrackingDomain"; //Your Google Analytics Tracking Domain
+
 ?>
