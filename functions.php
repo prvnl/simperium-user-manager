@@ -46,4 +46,44 @@ function getcurrentpath()
     return $path;
 }
     
+function newPasswordIsValid()
+{
+    global $new_password;
+    global $new_password_confirm;
+    global $alert;
+    
+    if($new_password!=$new_password_confirm)
+    {
+        $alert = "New password does not match..";
+        return false;
+    }
+    
+    if(strlen($new_password)<6)
+    {
+        $alert = "New password must contain at least 6 characters..";
+        return false;
+    }
+    return true;
+}
+    
+function newUsernameIsValid()
+{
+    global $new_user;
+    global $new_user_confirm;
+    global $alert;
+    
+    if($new_user!=$new_user_confirm)
+    {
+        $alert = "New username does not match..";
+        return false;
+    }
+    
+    if(strlen($new_user)<6)
+    {
+        $alert = "New username must be a valid email address..";
+        return false;
+    }
+    return true;
+}
+    
 ?>
