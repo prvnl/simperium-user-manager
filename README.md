@@ -25,4 +25,6 @@ To setup the Simperium User Manager script follow these guidelines:
 * Upload the PHP files to your web hosting
 * Test your Simperium Reset Password script by opening 'index.php' in your web browser! 
 
+A live version of the Simperium User Manager is available at: http://prv.nl/routereg/usermanager/index.php
+
 If you have feedback, feel free to contact me on support@prv.nl or add an issue!
