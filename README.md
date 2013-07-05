@@ -21,9 +21,8 @@ To setup the Simperium User Manager script follow these guidelines:
 * Create a user for your database on your MySQL instance
 * Create the tokens table in your database, using the 'tokes_table.sql' script
 * Change the 'settings.php' file according to your settings (the Simperium API Key and Admin Key can be found in the Simperium Dashboard)
-* Upload the 'assets' folder to your web hosting
-* Upload the PHP files to your web hosting
-* Test your Simperium Reset Password script by opening 'index.php' in your web browser! 
+* Upload the 'usermanager' folder to your web hosting
+* Test your Simperium Reset Password script by opening the 'usermanager' location in your web browser! 
 
 A live version of the Simperium User Manager is available at: http://prv.nl/tools/usermanager/
 
