@@ -26,4 +26,9 @@ To setup the Simperium User Manager script follow these guidelines:
 
 A live version of the Simperium User Manager is available at: http://prv.nl/tools/usermanager/
 
+Things still to be done:
+
+* Update MySQL to functions to MySQLi functions
+* Use parameterized MySQLi query for aditional security
+
 If you have feedback, feel free to contact me on support@prv.nl or add an issue!
