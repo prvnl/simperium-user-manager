@@ -12,9 +12,9 @@ With this option the user can change their password. The user needs the current 
 <b>Change username:</b>
 With this option the user can change their username. The user needs the current account details to change the username.
 
-This script uses PHP, SMTP, MySQL, cURL and JSON. Make sure your web hosting is supporting these features, otherwise this script might not work..
+This script uses PHP, SMTP, MySQL, cURL and JSON. Make sure your web hosting is supporting these features, otherwise this website might not work..
 
-To setup the Simperium User Manager script follow these guidelines:
+To setup the Simperium User Manager website follow these guidelines:
 
 * Download the sources
 * Create a database on your MySQL instance
@@ -22,7 +22,7 @@ To setup the Simperium User Manager script follow these guidelines:
 * Create the tokens table in your database, using the 'tokes_table.sql' script
 * Change the 'settings.php' file according to your settings (the Simperium API Key and Admin Key can be found in the Simperium Dashboard)
 * Upload the 'usermanager' folder to your web hosting
-* Test your Simperium Reset Password script by opening the 'usermanager' location in your web browser! 
+* Test your Simperium User Manager by opening the 'usermanager' location in your web browser! 
 
 A live version of the Simperium User Manager is available at: http://prv.nl/tools/usermanager/
 
