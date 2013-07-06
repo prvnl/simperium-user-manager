@@ -9,17 +9,22 @@ $pageTitle="User manager";
 include("header.php");
 
         echo'<div class="container">
+    
+            <form class="form-signin" method="post">';
+            if($appLogo!="")
+            {
+                echo '<div class="row text-center">
+                    <img src="'.$appLogo.'">
+                    <h4>'.$appLogoName.'</h4>
+                </div>
+                <hr>';
+            }
+                echo '<h2>User manager</h2>
+                <p>Welcome to the user manager for '.$appName.', the user manager gives you tools to manage your user account!<br/><br/>
+                If you need additional support, please contact: <a href="mailto:'.$emailFrom.'">'.$emailFrom.'</a>
+            </form>
 
-                <form class="form-signin" method="post">
-
-                    <h2>User manager</h2>
-                    <p>Welcome to the user manager for '.$appName.', the user manager give you tools to manage your user account!<br/><br/>
-                    If you need additional support, please contact: <a href="mailto:'.$emailFrom.'">'.$emailFrom.'</a></p>
-
-                </form>
-        </div>
-
-        <div class="container">
+            <hr>
     
             <div class="row">
                 <div class="span4">
@@ -37,7 +42,14 @@ include("header.php");
                     <p>Do you want to change your username for '.$appName.', then use the option \'Change username\' to change your username. You need your current account details to change your username.</p>
                     <p><a class="btn" href="changeusername.php">View details &raquo;</a></p>
                 </div>
+
             </div>
+    
+            <hr>
+
+            <footer>
+                <p>'.$copyright.'</p>
+            </footer>
 
         </div> <!-- /container -->';
 
