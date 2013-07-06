@@ -11,7 +11,7 @@
             body {
                 padding-top: 100px;
                 padding-bottom: 40px;
-                background-color: #f5f5f5 !important;
+                background-color: <?php echo $backgroundColor;?> !important;
             }
 
             .placeholder {
