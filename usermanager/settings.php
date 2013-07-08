@@ -5,7 +5,7 @@
 $appName="YourAppName"; //Your App Name
 $appLogo=""; //Your App logo (optional value)
 $appLogoName=""; //Your App name For the App logo (optional value)
-$copyright="&copy; YourCompany 2013"; //Your copyright text
+$copyright="&copy; YourCompany 2013"; //Your copyright text (optional value)
 $backgroundColor="#f5f5f5"; //Web site background color
 
 //Email Settings
@@ -19,13 +19,13 @@ $apiKey="YourAPIKey"; //Simperium API Key, found in Simperium dashboard
 $adminKey="YourAdminKey"; //Simperium Admin Key, found in Simperium dashboard
 
 //MySQL Database Settings
-$host="localhost"; //MySQL Host
-$uname="DatabaseUsername"; //Username for access to database
-$pass="DatabasePassword"; //Password for access to database
+$dbHost="localhost"; //MySQL Host
+$dbUsername="DatabaseUsername"; //Username for access to database
+$dbPassword="DatabasePassword"; //Password for access to database
 $db= "DatabaseName";  //Database name
 
 //Google Analytics Settings
-$GAEnabled=false; //If 'true' tracking is enabled, if 'false' tracking is disabled
+$GATrackingEnabled=false; //If 'true' Google Analytics tracking is enabled, if 'false' tracking is disabled
 $GATrackingID="YourTrackinID"; //Your Google Analytics Tracking ID
 $GATrackingDomain="YourTrackingDomain"; //Your Google Analytics Tracking Domain
 
