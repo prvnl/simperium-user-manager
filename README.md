@@ -12,7 +12,7 @@ With this option the user can change their password. The user needs the current 
 <b>Change username:</b>
 With this option the user can change their username. The user needs the current account details to change the username.
 
-This script uses PHP, SMTP, MySQL, cURL and JSON. Make sure your web hosting is supporting these features, otherwise this website might not work..
+This script uses PHP 5.x, SMTP, MySQLi, cURL and JSON. Make sure your web hosting is supporting these features, otherwise this website might not work..
 
 To setup the Simperium User Manager website follow these guidelines:
 
