@@ -28,33 +28,45 @@ if(isset($_POST['email']))
         //User account exists
         $token=getRandomString(10);
 
-        connect();
-        $q="insert into tokens (token,email) values ('".$token."','".$email."')";
-        mysql_query($q);
+        $mysqli = dbConnect();
         
-        //Set email parameters
-        $subject = "Forgot Password for ".$appName."";
-        $uri = 'http://'. $_SERVER['HTTP_HOST'] ;
-        $message = '
-        <html>
-        <head>
-        <title>Forgot Password for '.$appName.'</title>
-            </head>
-            <body>
-            <p>Hi,<br><br>You have requested the password reset link for your '.$appName.' account!<br><br>
-                You can change the password for your account here:<br><br>
-                    <a href="'.getcurrentpath().'resetpassword.php?token='.$token.'">Reset Password Link</a><br><br>
-                    If you need further assistance please contact '.$emailFrom.'</p>
-                    </body>
-                    </html>';
-                    $headers = "MIME-Version: 1.0" . "\r\n";
-        $headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
-        $headers .= "From: ".$emailFromName."<".$emailFrom.">" . "\r\n";
-        $headers .= "Bcc: ".$emailBCC."" . "\r\n";
+        $stmt = $mysqli->prepare("INSERT INTO tokens (token, email) values (?, ?)");
+
+        $stmt->bind_param('ss', $token, $email);
         
-        if(mail($email,$subject,$message,$headers)){
-            $action="Success";
+        if(!$stmt->execute())
+        {
+            echo 'Could not execute query: '.$stmt->error;
         }
+        else
+        {
+            //Set email parameters
+            $subject = "Forgot Password for ".$appName;
+            $uri = 'http://'. $_SERVER['HTTP_HOST'] ;
+            $message = '
+            <html>
+            <head>
+            <title>Forgot Password for '.$appName.'</title>
+                </head>
+                <body>
+                <p>Hi,<br><br>You have requested the password reset link for your '.$appName.' account!<br><br>
+                    You can change the password for your account here:<br><br>
+                        <a href="'.getcurrentpath().'resetpassword.php?token='.$token.'">Reset Password Link</a><br><br>
+                        If you need further assistance please contact '.$emailFrom.'</p>
+                        </body>
+                        </html>';
+                        $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
+            $headers .= "From: ".$emailFromName."<".$emailFrom.">" . "\r\n";
+            $headers .= "Bcc: ".$emailBCC."" . "\r\n";
+            
+            if(mail($email,$subject,$message,$headers)){
+                $action="Success";
+            }
+        }
+        
+        $stmt->close(); 
+        $mysqli->close();
     }
 }
 

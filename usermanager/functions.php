@@ -1,20 +1,19 @@
 <?php
 //file name: functions.php
-    
-function connect()
+
+function dbConnect()
 {
-    global $host;
-    global $uname;
-    global $pass;
+    global $dbHost;
+    global $dbUsername;
+    global $dbPassword;
     global $db;
     
-    $con = mysql_connect($host,$uname,$pass);
+    $mysqli = new mysqli($dbHost, $dbUsername, $dbPassword, $db);
 
-    if (!$con)
-    {
-        die('Could not connect: ' . mysql_error());
-    }
-    mysql_select_db($db, $con);
+   if (!$mysqli)
+     throw new Exception('Could not connect to database..');
+   else
+    return $mysqli; 
 }
     
 function getRandomString($length)

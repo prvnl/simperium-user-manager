@@ -4,12 +4,10 @@
 include("settings.php");
 include("functions.php");
 
-connect();
-
 session_start();
 
 $token=$_GET['token'];
-$pass=$_POST['password'];
+$password=$_POST['password'];
 $email=$_SESSION['email'];
 $action="Check";
 
@@ -19,38 +17,54 @@ if (isset($_POST['action'])) {
 
 if($action=="Save")
 {
-    if($pass!='')
+    if($password!='')
     {
-        $q="update tokens set used=1 where token='".$token."' and email='".$email."' and used=0";
-        $r=mysql_query($q);
+        //Update token to used and change Simperium password
+        $mysqli = dbConnect();
         
-        if(mysql_affected_rows()==1)
-        {
-            $ch = curl_init("https://auth.simperium.com/1/".$app_id."/reset_password/");
+        $stmt = $mysqli->prepare("UPDATE tokens SET used = 1 WHERE token = ? AND email = ? AND used = 0");
 
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, "username=" .$email."&new_password=".$pass."");
-            curl_setopt($ch, CURLOPT_HTTPHEADER,array('X-Simperium-API-Key:'.$adminKey.''));
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            
-            $result = curl_exec($ch);
-            
-            $jsonArray = json_decode($result);
-            
-            if($jsonArray->{'status'} === "success")
-            {
-                $action = "Success";
-            }
-            else
-            {
-                $alert = "An error occured, please try again..";
-                $action = "Check";
-            }
+        $stmt->bind_param('ss', $token, $email);
+        
+        if(!$stmt->execute())
+        {
+            echo 'Could not execute query: '.$stmt->error;
+            $action = "Error";
         }
         else
         {
-            $action = "Error";
+            if($stmt->affected_rows==1)
+            {
+                $ch = curl_init("https://auth.simperium.com/1/".$app_id."/reset_password/");
+                
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, "username=" .$email."&new_password=".$password);
+                curl_setopt($ch, CURLOPT_HTTPHEADER,array('X-Simperium-API-Key:'.$adminKey));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                
+                $result = curl_exec($ch);
+                
+                $jsonArray = json_decode($result);
+                
+                if($jsonArray->{'status'} === "success")
+                {
+                    $action = "Success";
+                }
+                else
+                {
+                    $alert = "An error occured, please try again..";
+                    $action = "Check";
+                }
+            }
+            else
+            {
+                $action = "Error";
+            }
         }
+        
+        $stmt->close();
+        $mysqli->close();
+
     }
     else
     {
@@ -63,19 +77,43 @@ if($action=="Save")
 if($action=="Check")
 {
     //Check if token exists in the database
-    $q="select email from tokens where token='".$token."' and used=0";
-    $r=mysql_query($q);
-    if($row=mysql_fetch_array($r))
+    $mysqli = dbConnect();
+    
+    $stmt = $mysqli->prepare("SELECT email FROM tokens WHERE token = ? AND used = 0");
+
+    $stmt->bind_param('s', $token);
+    
+    if(!$stmt->execute())
     {
-        //The token exists, add email to session object
-        $_SESSION['email']=$row['email'];
-        $email=$_SESSION['email'];
+        echo 'Could not execute query: '.$stmt->error;
     }
     else
     {
-        //Token not found, display error
-        $action = "Error";
+        $stmt->store_result();
+    
+        $stmt->bind_result($email_result);
+        
+        $numrows = $stmt->num_rows;
+        
+        if($numrows==1)
+        {
+            //The token exists, add email to session object
+            while($stmt->fetch()) 
+            { 
+                $_SESSION['email']=$email_result;
+                $email=$_SESSION['email'];
+            }
+        }
+        else
+        {
+            //Token not found, display error
+            $action = "Error";
+        }
     }
+    
+    $stmt->close();
+    $mysqli->close();
+
 }
 
 //Set parameters for header include
