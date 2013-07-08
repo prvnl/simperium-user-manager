@@ -28,7 +28,7 @@ A live version of the Simperium User Manager is available at: http://prv.nl/tool
 
 Things still to be done:
 
-* Update MySQL to functions to MySQLi functions
-* Use parameterized MySQLi query for aditional security
+* Update MySQL functions to MySQLi functions
+* Use parameterized MySQLi query for additional security
 
 If you have feedback, feel free to contact me on support@prv.nl or add an issue!
