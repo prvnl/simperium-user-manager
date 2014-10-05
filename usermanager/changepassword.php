@@ -18,7 +18,7 @@ if(isset($user)&&isset($password))
         //Connect to Simperium to change password
         $ch = curl_init("https://auth.simperium.com/1/".$app_id."/update/");
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, "username=".$user."&password=".$password."&new_password=".$new_password."");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "username=".$user."&password=".urlencode($password)."&new_password=".urlencode($new_password)."");
         curl_setopt($ch, CURLOPT_HTTPHEADER,array('X-Simperium-API-Key:'.$apiKey.''));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         
