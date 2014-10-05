@@ -38,7 +38,7 @@ if($action=="Save")
                 $ch = curl_init("https://auth.simperium.com/1/".$app_id."/reset_password/");
                 
                 curl_setopt($ch, CURLOPT_POST, true);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, "username=" .$email."&new_password=".$password);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, "username=".$email."&new_password=".urlencode($password));
                 curl_setopt($ch, CURLOPT_HTTPHEADER,array('X-Simperium-API-Key:'.$adminKey));
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
                 
