@@ -87,9 +87,10 @@ if($action=="Success")
 }
 else
 {
+                $email=$_REQUEST['email'];
                 echo '<h2>Forgot password</h2>
                 <p>Please enter the email address you signed up with to receive a password reset link for '.$appName.'</p>
-                <input type="email" class="input-block-level" name="email" placeholder="Email address" required>';
+                <input type="email" class="input-block-level" name="email" placeholder="Email address" value="'.$email.'" required>';
 
     if($alert)
     {
