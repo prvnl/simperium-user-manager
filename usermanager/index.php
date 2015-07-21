@@ -29,18 +29,18 @@ include("header.php");
             <div class="row">
                 <div class="span4">
                     <h2>Forgot password</h2>
-                    <p>Did you loose your password for '.$appName.', then use the option \'Forgot password\' to recover your password. For a password recovery you need access to the e-mail you used for registering.</p>
-                    <p><a class="btn" href="forgotpassword.php">View details &raquo;</a></p>
+                    <p>Did you lose your password for '.$appName.'? Use the option \'Forgot password\' to recover your password. For a password recovery you need access to the e-mail you used for registering.</p>
+                    <p><a class="btn" href="forgotpassword.php">Forgot password &raquo;</a></p>
                 </div>
                 <div class="span4">
                     <h2>Change password</h2>
-                    <p>Do you want to change your password for '.$appName.', then use the option \'Change password\' to change your password. You need your current account details to change your password.</p>
-                    <p><a class="btn" href="changepassword.php">View details &raquo;</a></p>
+                    <p>Do you want to change your password for '.$appName.'? Use the option \'Change password\' to change your password. You need your current account details to change your password.</p>
+                    <p><a class="btn" href="changepassword.php">Change password &raquo;</a></p>
                 </div>
                 <div class="span4">
                     <h2>Change username</h2>
-                    <p>Do you want to change your username for '.$appName.', then use the option \'Change username\' to change your username. You need your current account details to change your username.</p>
-                    <p><a class="btn" href="changeusername.php">View details &raquo;</a></p>
+                    <p>Do you want to change your username for '.$appName.'? Use the option \'Change username\' to change your username. You need your current account details to change your username.</p>
+                    <p><a class="btn" href="changeusername.php">Change username &raquo;</a></p>
                 </div>
 
             </div>
