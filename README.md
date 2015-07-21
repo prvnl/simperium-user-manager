@@ -4,7 +4,7 @@ simperium-user-manager
 This PHP website allows users to manage their user account for a specific App that is using the Simperium platform. The website is using a Bootstrap Responsive HTML5 layout and gives the user the following options:
 
 <b>Forgot password:</b>
-When the user looses the password, the user can request a password reset link by email. By using the link in the email the user can reset their password without knowing their original password. Because of the usage of a token, you can be sure that only the owner of the email address can use the correct password recovery link.
+When the user loses the password, the user can request a password reset link by email. By using the link in the email the user can reset their password without knowing their original password. Because of the usage of a token, you can be sure that only the owner of the email address can use the correct password recovery link.
 
 <b>Change password:</b>
 With this option the user can change their password. The user needs the current account details to change the password.
